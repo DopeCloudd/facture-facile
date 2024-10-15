@@ -12,6 +12,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.blurBackground {
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
