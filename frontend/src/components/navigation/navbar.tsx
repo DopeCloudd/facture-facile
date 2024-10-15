@@ -13,7 +13,7 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: '#services',
+    href: '#features',
     label: 'Fonctionnalités',
   },
   {
