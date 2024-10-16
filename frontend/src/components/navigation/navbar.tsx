@@ -21,8 +21,8 @@ const routeList: RouteProps[] = [
     label: 'Utilisation',
   },
   {
-    href: '#pricing',
-    label: 'Avis',
+    href: '#faq',
+    label: 'FAQ',
   },
 ];
 
