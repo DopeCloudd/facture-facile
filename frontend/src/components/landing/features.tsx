@@ -1,6 +1,6 @@
 import { AnimatedList } from '@/components/ui/animated-list';
 import { cn } from '@/lib/utils';
-import { AnimatedBeamDemo } from '@/components/landing/beam';
+import { GlobeDemo } from './glob';
 
 interface Item {
   name: string;
@@ -106,8 +106,8 @@ export function Features() {
           </AnimatedList>
         </div>
       </div>
-      <div className="flex w-full justify-center gap-16 max-lg:flex-col">
-        <AnimatedBeamDemo />
+      <div className="relative flex w-full justify-center gap-16 max-lg:flex-col">
+        <GlobeDemo />
         <div className="max-lg:text-left">
           <h4 className="text-xl font-bold tracking-tight text-black dark:text-white">
             <span className="bg-gradient-to-r from-[#268320] to-[#8ad892] bg-clip-text text-transparent">Gestion centralisée</span>
