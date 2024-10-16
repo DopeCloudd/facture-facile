@@ -108,7 +108,7 @@ export function Footer() {
           </li>
         </ul>
         <div className="flex items-center justify-between text-sm font-medium tracking-tight text-neutral-500 dark:text-neutral-400">
-          <p>Made by @DopeCloudd with 💜</p>
+          <p>Made by @DopeCloudd with 💚</p>
         </div>
       </div>
     </footer>
