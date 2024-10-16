@@ -4,7 +4,7 @@ export function Footer() {
       <div className="flex flex-col justify-center gap-y-3 border-b border-dashed border-slate-400/20 py-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <h3 className="text-balance text-2xl font-bold text-neutral-900 dark:text-white md:text-start md:text-4xl">Besoin d'un support technique ?</h3>
-          <p className="mt-1 text-foreground/50">Contactez moi par mail, une réponse dans un délai de 48h</p>
+          <p className="mt-1 text-foreground/50">Prenez contact par e-mail, une réponse dans un délai de 48h</p>
         </div>
         <a
           className="flex h-10 items-center justify-center rounded-full bg-neutral-800 px-4 text-base font-semibold text-white transition ease-out hover:ring-2 hover:ring-neutral-900 hover:ring-offset-2 dark:bg-primary dark:text-black dark:hover:ring-white dark:hover:ring-offset-black lg:h-12 lg:text-base"
@@ -18,7 +18,7 @@ export function Footer() {
               clip-rule="evenodd"
             ></path>
           </svg>
-          <span className="tracking-tight">Contact par mail</span>
+          <span className="tracking-tight">Envoyer un e-mail</span>
         </a>
       </div>
       <div className="flex items-center justify-between">
