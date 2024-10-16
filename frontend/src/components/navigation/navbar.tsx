@@ -1,10 +1,10 @@
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { useState } from 'react';
-
 import { ModeToggle } from '@/components/navigation/mode-toggle';
+import { buttonVariants } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { PersonIcon } from '@radix-ui/react-icons';
 import { Menu } from 'lucide-react';
-import { buttonVariants } from '@/components/ui/button';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface RouteProps {
   href: string;
@@ -93,10 +93,10 @@ export const Navbar = () => {
 
         <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
           <ModeToggle />
-          <a rel="noreferrer noopener" href="/login" target="_blank" className={`border ${buttonVariants({ variant: 'default' })}`}>
+          <Link to="/login" className={`border ${buttonVariants({ variant: 'default' })}`}>
             <PersonIcon className="mr-2 w-5 h-5" />
             Connexion
-          </a>
+          </Link>
         </div>
       </div>
     </header>
