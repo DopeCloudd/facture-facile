@@ -7,7 +7,7 @@ export function Footer() {
           <p className="mt-1 text-foreground/50">Contactez moi par mail, une réponse dans un délai de 48h</p>
         </div>
         <a
-          className="flex h-10 items-center justify-center rounded-full bg-neutral-800 px-4 text-base font-semibold text-white transition ease-out hover:ring-2 hover:ring-neutral-900 hover:ring-offset-2 dark:bg-primary dark:text-white dark:hover:ring-white dark:hover:ring-offset-black lg:h-12 lg:text-base"
+          className="flex h-10 items-center justify-center rounded-full bg-neutral-800 px-4 text-base font-semibold text-white transition ease-out hover:ring-2 hover:ring-neutral-900 hover:ring-offset-2 dark:bg-primary dark:text-black dark:hover:ring-white dark:hover:ring-offset-black lg:h-12 lg:text-base"
           href="https://discord.gg/9SEbb5T6a5"
         >
           <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 font-bold">
