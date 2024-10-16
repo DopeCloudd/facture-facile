@@ -1,16 +1,22 @@
-import { Navbar } from '@/components/navigation/navbar';
-import { Hero } from '@/components/landing/hero';
-import { Features } from '@/components/landing/features';
-import { Footer } from '@/components/footer/footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Login } from '@/pages/login';
+import { Register } from '@/pages/register';
+import { Landing } from '@/pages/landing';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Features />
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        {/* Page d'accueil */}
+        <Route path="/" element={<Landing />} />
+
+        {/* Page de connexion */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Page d'inscription */}
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
   );
 }
 
