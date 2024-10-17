@@ -1,7 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useLoginMutation } from '@/mutations/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
@@ -16,6 +18,9 @@ const loginSchema = z.object({
 type LoginFormInputs = z.infer<typeof loginSchema>;
 
 export function Login() {
+  const [error, setError] = useState<string | null>(null);
+  const { mutate: login, isLoading } = useLoginMutation();
+
   const {
     register,
     handleSubmit,
@@ -27,7 +32,11 @@ export function Login() {
   // Fonction de gestion de la soumission du formulaire
   const onSubmit = (data: LoginFormInputs) => {
     console.log(data);
-    // Logique pour se connecter
+    login(data, {
+      onError: () => {
+        setError('Erreur de connexion. Veuillez réessayer.');
+      },
+    });
   };
 
   return (
@@ -55,8 +64,9 @@ export function Login() {
               <Input id="password" type="password" {...register('password')} />
               {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
             </div>
+            {error && <p className="text-red-500">{error}</p>}
             <Button type="submit" className="w-full">
-              Se connecter
+              {isLoading ? 'Connexion en cours...' : 'Se connecter'}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
