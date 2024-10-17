@@ -40,8 +40,13 @@ export function Login() {
   };
 
   return (
-    <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
-      <div className="flex items-center justify-center py-12">
+    <div className="w-full h-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+      <div className="flex items-center justify-center py-12 relative">
+        <Button className="absolute top-10 left-10" variant={'outline'}>
+          <Link to="/" className="flex items-center gap-2">
+            Retour
+          </Link>
+        </Button>
         <div className="mx-auto grid w-[350px] gap-6">
           <div className="grid gap-2 text-center">
             <h1 className="text-3xl font-bold">Connexion</h1>
@@ -78,7 +83,11 @@ export function Login() {
         </div>
       </div>
       <div className="hidden bg-muted lg:block">
-        <img src="/placeholder.svg" alt="Image" width="1920" height="1080" className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
+        <div className="relative h-full w-full flex flex-col justify-center items-center bg-muted gap-6">
+          <img src="/assets/bg-auth.jpg" alt="Image" width="1920" height="1080" className="h-full w-full object-cover absolute top-0 left-0" />
+          <h1 className="text-8xl font-bold text-white z-10 text-center">Facture Facile</h1>
+          <span className="text-white text-xl italic z-10">“ La facturation n'a jamais été aussi simple. „</span>
+        </div>
       </div>
     </div>
   );
