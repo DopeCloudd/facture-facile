@@ -1,5 +1,5 @@
 import { Footer } from '@/components/footer/footer';
-import { Cta } from '@/components/landing/Cta';
+import { Cta } from '@/components/landing/cta';
 import { FAQ } from '@/components/landing/faq';
 import { Features } from '@/components/landing/features';
 import { Hero } from '@/components/landing/hero';
