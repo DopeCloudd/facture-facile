@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Login } from '@/pages/login';
 import { Register } from '@/pages/register';
 import { Landing } from '@/pages/landing';
+import { Dashboard } from '@/pages/dashboard';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
 
         {/* Page d'inscription */}
         <Route path="/register" element={<Register />} />
+
+        {/* Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
