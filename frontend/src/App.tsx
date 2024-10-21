@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Dashboard } from '@/pages/dashboard';
+import { InvoiceCreate } from '@/pages/invoice-create';
+import { Landing } from '@/pages/landing';
 import { Login } from '@/pages/login';
 import { Register } from '@/pages/register';
-import { Landing } from '@/pages/landing';
-import { Dashboard } from '@/pages/dashboard';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
 
         {/* Dashboard */}
         <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Création d'une facture */}
+        <Route path="/invoice/create" element={<InvoiceCreate />} />
       </Routes>
     </Router>
   );
