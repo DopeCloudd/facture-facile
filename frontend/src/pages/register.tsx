@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useAuthStore } from '@/store/useAuthStore';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 // Schéma de validation Zod avec critères pour le mot de passe
@@ -28,6 +30,10 @@ const registerSchema = z
 type RegisterFormInputs = z.infer<typeof registerSchema>;
 
 export function Register() {
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const registerApi = useAuthStore(state => state.register);
+
   const {
     register,
     handleSubmit,
@@ -37,9 +43,13 @@ export function Register() {
   });
 
   // Fonction de gestion de la soumission du formulaire
-  const onSubmit = (data: RegisterFormInputs) => {
-    console.log(data);
-    // Logique pour gérer l'inscription
+  const onSubmit = async (data: RegisterFormInputs) => {
+    try {
+      await registerApi(data.email, data.password); // Appel à l'action register
+      navigate('/login'); // Rediriger vers la page login après inscription
+    } catch (error) {
+      setError('Échec inscription. Veuillez vérifier vos informations. ' + error);
+    }
   };
 
   return (
@@ -76,6 +86,7 @@ export function Register() {
               {errors.confirmPassword && <p className="text-sm text-red-500">{errors.confirmPassword.message}</p>}
             </div>
 
+            {error && <p className="text-red-500">{error}</p>}
             <Button type="submit" className="w-full">
               S'inscrire
             </Button>

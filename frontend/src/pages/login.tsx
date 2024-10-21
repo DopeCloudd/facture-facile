@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useLoginMutation } from '@/mutations/auth';
+import { useAuthStore } from '@/store/useAuthStore';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 // Schéma de validation Zod
@@ -19,7 +19,8 @@ type LoginFormInputs = z.infer<typeof loginSchema>;
 
 export function Login() {
   const [error, setError] = useState<string | null>(null);
-  const { mutate: login, isLoading } = useLoginMutation();
+  const navigate = useNavigate(); // Pour rediriger après le login
+  const loginApi = useAuthStore(state => state.login); // Action login de Zustand
 
   const {
     register,
@@ -30,13 +31,13 @@ export function Login() {
   });
 
   // Fonction de gestion de la soumission du formulaire
-  const onSubmit = (data: LoginFormInputs) => {
-    console.log(data);
-    login(data, {
-      onError: () => {
-        setError('Erreur de connexion. Veuillez réessayer.');
-      },
-    });
+  const onSubmit = async (data: LoginFormInputs) => {
+    try {
+      await loginApi(data.email, data.password); // Appel à l'action login
+      navigate('/dashboard'); // Rediriger vers la page dashboard après connexion
+    } catch (error) {
+      setError('Échec de la connexion. Veuillez vérifier vos informations. ' + error);
+    }
   };
 
   return (
@@ -71,7 +72,7 @@ export function Login() {
             </div>
             {error && <p className="text-red-500">{error}</p>}
             <Button type="submit" className="w-full">
-              {isLoading ? 'Connexion en cours...' : 'Se connecter'}
+              Se connecter
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
