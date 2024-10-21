@@ -1,15 +1,11 @@
 import { apiClient } from '@/api/client';
-import { useAuthStore } from '@/store/useAuthStore';
 
-export const login = async (email: string, password: string) => {
-  const response = await apiClient.post('/login', {
-    email,
-    password,
-  });
+export const loginApi = async (email: string, password: string) => {
+  const response = await apiClient.post('/login', { email, password });
+  return response.data;
+};
 
-  // Sauvegarder le token et l'email
-  const { token, email: userEmail } = response.data;
-  useAuthStore.getState().setToken(token, userEmail);
-
+export const registerApi = async (email: string, password: string) => {
+  const response = await apiClient.post('/register', { email, password });
   return response.data;
 };
