@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 export const Cta = () => {
   return (
     <section id="cta" className="bg-muted/50 py-16 px-20 mt-24 sm:mt-32 flex justify-center">
-      <div className="max-w-7xl grid grid-cols-2 place-items-center">
+      <div className="max-w-5xl grid grid-cols-2 place-items-center">
         <div className="col-start-1">
           <h2 className="text-3xl md:text-4xl font-bold ">Ne laissez pas la facturation vous ralentir !</h2>
           <p className="text-muted-foreground text-xl mt-4 mb-8 lg:mb-0">

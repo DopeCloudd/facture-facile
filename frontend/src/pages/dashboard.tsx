@@ -1,9 +1,10 @@
-import { CircleUser, Home, Menu, Package2, Search, FilePlus2, FileStack } from 'lucide-react';
+import { CircleUser, FilePlus2, FileStack, Home, Menu, Package2, Search } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Link } from 'react-router-dom';
 
 export function Dashboard() {
   return (
@@ -18,18 +19,18 @@ export function Dashboard() {
           </div>
           <div className="flex-1">
             <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <a href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+              <Link to="/dashboard" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                 <Home className="h-4 w-4" />
                 Dashboard
-              </a>
-              <a href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+              </Link>
+              <Link to="/dashboard/create" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                 <FilePlus2 className="h-4 w-4" />
                 Créer une facture
-              </a>
-              <a href="#" className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
+              </Link>
+              <Link to="/dashboard/list" className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary">
                 <FileStack className="h-4 w-4" />
                 Liste de mes factures
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
