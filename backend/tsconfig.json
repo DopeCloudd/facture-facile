@@ -10,7 +10,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@models/*": ["models/*"],
       "@services/*": ["services/*"],
@@ -20,5 +20,5 @@
       "@utils/*": ["utils/*"]
     }
   },
-  "include": ["./**/*"]
+  "include": ["**/*.ts"]
 }
